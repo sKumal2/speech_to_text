@@ -3,4 +3,6 @@ venv
 service-account-key.json
 credentials.json
 sample2.wav
+sample.wav
+long_audio.wav
 __pycache__/

@@ -1,23 +1,10 @@
-import os
-from langchain_google_community import SpeechToTextLoader
 from dotenv import load_dotenv
+from google_speech_loader import GoogleSpeechV2Loader
 
 load_dotenv()
 
-project_id = os.getenv("PROJECT_ID")
-credentials_path = os.getenv("CREDENTIALS_PATH")
-
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = credentials_path
-os.environ["GOOGLE_CLOUD_PROJECT"] = project_id
-
-
-file_path = "./sample.wav"
-
-loader = SpeechToTextLoader(
-    project_id=project_id,
-    file_path=file_path
-)
-
+loader = GoogleSpeechV2Loader(audio_file="./sample.wav")
 docs = loader.load()
-print("✅ Transcription successful:")
+
+print("✅ Transcript:", docs[0].page_content)
 print(docs)

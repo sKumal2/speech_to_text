@@ -4,4 +4,4 @@ service-account-key.json
 credentials.json
 *.wav
 
-__pycache__/
+__pycache__
